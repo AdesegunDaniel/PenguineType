@@ -1,0 +1,140 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>penguin type model</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            margin: 20px;
+            background-image: url("{{ url_for('static', filename='pg_img1.png') }}"); /* Replace with your page background image URL */
+            background-size: cover;
+            background-position: center;
+            color: white; /* Change text color to white */
+            font-weight: bold; /* Make text bold */
+        }
+        .container {
+            background-image: url("{{ url_for('static', filename='pg_img.png') }}"); /* Replace with your container background image URL */
+            background-size: cover;
+            background-position: center;
+            padding: 20px;
+            border-radius: 50%;
+            width: 600px;
+            height: 600px;
+            margin: 0 auto;
+            box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            justify-content: center;
+            position: relative;
+        }
+        h1 {
+            text-align: center;
+            margin-bottom: 20px;
+        }
+        .form-group {
+            position: absolute;
+            transform-origin: center;
+        }
+        .form-group:nth-child(1) { transform: rotate(0deg) translate(250px) rotate(0deg); }
+        .form-group:nth-child(2) { transform: rotate(45deg) translate(250px) rotate(-45deg); }
+        .form-group:nth-child(3) { transform: rotate(90deg) translate(250px) rotate(-90deg); }
+        .form-group:nth-child(4) { transform: rotate(135deg) translate(250px) rotate(-135deg); }
+        .form-group:nth-child(5) { transform: rotate(180deg) translate(250px) rotate(-180deg); }
+        .form-group:nth-child(6) { transform: rotate(225deg) translate(250px) rotate(-225deg); }
+        .form-group:nth-child(7) { transform: rotate(270deg) translate(250px) rotate(-270deg); }
+        .form-group:nth-child(8) { transform: rotate(315deg) translate(250px) rotate(-315deg); }
+        .form-group label {
+            margin-bottom: 5px;
+        }
+        input[type="text"], input[type="number"], input[type="float"], select {
+            width: 100px;
+            padding: 8px;
+            box-sizing: border-box;
+            color: black; /* Change input text color to black */
+            font-weight: bold; /* Make input text bold */
+        }
+        .submit-btn {
+            margin-top: 20px;
+            padding: 10px 20px;
+            background-color: #3498db;
+            color: #fff;
+            border: none;
+            border-radius: 5px;
+            cursor: pointer;
+            font-weight: bold; /* Make button text bold */
+        }
+        .submit-btn:hover {
+            background-color: #2980b9;
+        }
+        .description-container {
+            background-color: #fff;
+            padding: 20px;
+            margin-bottom: 20px;
+            border-radius: 8px;
+            box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+            width: 600px;
+            margin: 20px auto 0;
+            color: black; /* Change description text color to black */
+            font-weight: bold; /* Make description text bold */
+        }
+        .footer {
+            text-align: center;
+            margin-top: 20px;
+            font-size: 0.9em;
+            color: white; /* Change footer text color to white */
+        }
+    </style>
+</head>
+<body>
+    <div class="description-container">
+        <h2>Model Description</h2>
+        <p>This model predicts the type of penguin based on various features of the observed penguin such as the island the penguin is found, its bill length, depth, its flipper length, body mass, sex, and year. The model uses a machine learning algorithm trained on a dataset of penguin measurements to make accurate predictions.</p>
+        <p>To use the model, simply fill out the form with the required information and click "Submit". The model will process the input data and provide a prediction of the penguin type.</p>
+    </div>
+    <div class="container">
+        <h1>Radial Form Layout</h1>
+        <form action="{{ url_for('predict') }}" method="post">
+            <div class="form-group">
+                <label for="island">Island</label>
+                <select id="island" name="island" required>
+                    <option value="Biscoe">Biscoe</option>
+                    <option value="Dream">Dream</option>
+                    <option value="Torgersen">Torgersen</option>
+                </select>
+            </div>
+            <div class="form-group">
+                <label for="bill_length_mm">Bill Length (mm)</label>
+                <input type="number" step="0.5" id="bill_length_mm" name="bill_length_mm" required>
+            </div>
+            <div class="form-group">
+                <label for="bill_depth_mm">Bill Depth (mm)</label>
+                <input type="number" step="0.5" id="bill_depth_mm" name="bill_depth_mm" required>
+            </div>
+            <div class="form-group">
+                <label for="flipper_length_mm">Flipper Length (mm)</label>
+                <input type="number" step="0.5" id="flipper_length_mm" name="flipper_length_mm" required>
+            </div>
+            <div class="form-group">
+                <label for="body_mass_g">Body Mass (g)</label>
+                <input type="number" step="0.5" id="body_mass_g" name="body_mass_g" required>
+            </div>
+            <div class="form-group">
+                <label for="sex">Sex</label>
+                <select id="sex" name="sex" required>
+                    <option value="male">Male</option>
+                    <option value="female">Female</option>
+                </select>
+            </div>
+            <div class="form-group">
+                <label for="year">Year</label>
+                <input type="number" id="year" name="year" min="2007" max="2009" step="1" required>
+            </div>
+            <button type="submit" class="submit-btn">Submit</button>
+        </form>
+        <div class="footer">Model built by Adesegun Oluwademilade Daniel</div>
+    </div>
+</body>
+</html>
