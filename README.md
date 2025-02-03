@@ -42,7 +42,3 @@ This project is licensed under the MIT License. See the [LICENSE](LICENSE) file 
 ## Contact
 
 For any questions or inquiries, please contact [adesegundaniel11@gmail.com](mailto:adesegundaniel11@gmail.com).
-
-```
-
-Feel free to customize this README file further to suit your needs! If you need any more help, just let me know.
