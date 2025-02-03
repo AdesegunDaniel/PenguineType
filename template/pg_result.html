@@ -1,0 +1,75 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Penguin Type Prediction Result</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            background-image: url("{{ url_for('static', filename='pg_img2.png') }}"); /* Replace with your page background image URL */
+            background-size: cover;
+            background-position: center;
+            margin: 0;
+            padding: 0;
+        }
+        .container {
+            width: auto;
+            margin: 0 auto;
+            padding: 20px;
+            background-color: rgba(255, 255, 255, 0.3); /* Make container more transparent */
+            box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+            border-radius: 8px;
+            margin-top: 50px;
+            backdrop-filter: blur(10px); /* Add blur effect for glass-like appearance */
+        }
+        h1 {
+            text-align: center;
+            color: #333;
+        }
+        .result {
+            margin-top: 20px;
+            padding: 10px;
+            background-color: rgba(233, 236, 239, 0.3); /* Make result container more transparent */
+            border-radius: 4px;
+            text-align: center;
+            backdrop-filter: blur(10px); /* Add blur effect for glass-like appearance */
+        }
+        .info {
+            margin-top: 20px;
+            padding: 10px;
+            background-color: rgba(248, 249, 250, 0.3); /* Make info container more transparent */
+            border-radius: 4px;
+            backdrop-filter: blur(10px); /* Add blur effect for glass-like appearance */
+        }
+        .info p {
+            margin: 5px 0;
+        }
+        .footer {
+            text-align: center;
+            margin-top: 20px;
+            font-size: 0.9em;
+            color: #333; /* Change footer text color to original color */
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <h1>Penguin Type Prediction Result</h1>
+        <div class="result">
+            <h2>Predicted Penguin Type: {{ prediction }}</h2>
+        </div>
+        <div class="info">
+            <h3>Input Information:</h3>
+            <p><strong>Island:</strong> {{ island }}</p>
+            <p><strong>Bill Length (mm):</strong> {{ bill_length_mm }}</p>
+            <p><strong>Bill Depth (mm):</strong> {{ bill_depth_mm }}</p>
+            <p><strong>Flipper Length (mm):</strong> {{ flipper_length_mm }}</p>
+            <p><strong>Body Mass (g):</strong> {{ body_mass_g }}</p>
+            <p><strong>Sex:</strong> {{ sex }}</p>
+            <p><strong>Year:</strong> {{ year }}</p>
+        </div>
+        <div class="footer">Model built by Adesegun Oluwademilade Daniel</div>
+    </div>
+</body>
+</html>
